@@ -1,0 +1,29 @@
+{
+  "name": "d3node-linechart",
+  "version": "0.1.2",
+  "description": "D3-Node example - LineChart",
+  "main": "index.js",
+  "scripts": {
+    "generateAll": "node ./genAllGraphsFromConfig.js",
+    "generateAllDebug": "node --nolazy --inspect-brk=9229 ./genAllGraphsFromConfig.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/d3-node/d3node-linechart.git"
+  },
+  "keywords": [
+    "d3",
+    "cli",
+    "node",
+    "visualization",
+    "linechart"
+  ],
+  "author": "geekplux <geekplux@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "d3-fetch": "^1.1.2",
+    "d3-node": "^1.1.3",
+    "d3node-output": "^1.0.3",
+    "node-json-transform": "^1.0.20"
+  }
+}

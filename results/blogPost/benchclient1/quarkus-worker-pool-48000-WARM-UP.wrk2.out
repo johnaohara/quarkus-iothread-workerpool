@@ -1,0 +1,12 @@
+Running 1m test @ http://benchserver4G1:8080/hello/Grahame
+  4 threads and 100 connections
+  Thread calibration: mean lat.: 155.951ms, rate sampling interval: 905ms
+  Thread calibration: mean lat.: 144.370ms, rate sampling interval: 883ms
+  Thread calibration: mean lat.: 106.633ms, rate sampling interval: 606ms
+  Thread calibration: mean lat.: 128.953ms, rate sampling interval: 781ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   884.36ms    1.36s    8.02s    86.05%
+    Req/Sec    11.70k   233.10    12.32k    68.36%
+  2798005 requests in 1.00m, 245.49MB read
+Requests/sec:  46634.14
+Transfer/sec:      4.09MB

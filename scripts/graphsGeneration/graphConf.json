@@ -1,0 +1,136 @@
+[
+    {
+        "output": "mean-response-vs-throughput"
+        , "title" : "Microbenchmark - Mean Response Time vs Throughput"
+        , "xAxisTile":  "Throughput (req/sec)"
+        , "yPrimaryAxisTitle": "Mean Response Time (ms)"
+        , "legendXanchor": 500
+        , "legendYanchor": 250
+        , "yScalePrimaryMin": 0 
+        , "primaryDataset": [
+            {
+                "selector": "quarkus-io-thread-meanResponse"
+                , "legend": "Quarkus - Event Loop"
+                , "lineColor": "steelblue"
+            }
+            , {
+                "selector": "quarkus-worker-pool-meanResponse"
+                , "legend": "Quarkus - Worker Pool"
+                , "lineColor": "Red"
+            }
+        ]
+
+    }
+    ,{
+        "output": "centileResponsetime"
+        , "title" : "Microbenchmark - Centile Response Times vs Throughput"
+        , "xAxisTile":  "Throughput (req/sec)"
+        , "yPrimaryAxisTitle": "Response Time (ms)"
+        , "legendXanchor": 500
+        , "legendYanchor": 20
+        , "yScalePrimaryMin": 0 
+        , "primaryDataset": [
+            {
+                "selector": "quarkus-io-thread-response-99999"
+                , "legend": "Quarkus Event Loop - 99.999th centile"
+                , "lineColor": "PowderBlue"
+            }
+            , {
+                "selector": "quarkus-io-thread-response-99"
+                , "legend": "Quarkus Event Loop - 99th centile"
+                , "lineColor": "SkyBlue"
+            }
+            , {
+                "selector": "quarkus-io-thread-response-90"
+                , "legend": "Quarkus Event Loop - 90th centile"
+                , "lineColor": "DeepSkyBlue" 
+            }
+            , {
+                "selector": "quarkus-io-thread-response-50"
+                , "legend": "Quarkus Event Loop - 50th centile"
+                , "lineColor": "DodgerBlue" 
+            }
+            , {
+                "selector": "quarkus-io-thread-meanResponse"
+                , "legend": "Quarkus Event Loop - Mean"
+                , "lineColor": "MidnightBlue" 
+            }
+            , {
+                "selector": "quarkus-worker-pool-response-99999"
+                , "legend": "Quarkus Worker Pool - 99.999th centile"
+                , "lineColor": "LightCoral" 
+            }
+            , {
+                "selector": "quarkus-worker-pool-response-99"
+                , "legend": "Quarkus Worker Pool - 99th centile"
+                , "lineColor": "Crimson" 
+            }
+            , {
+                "selector": "quarkus-worker-pool-response-90"
+                , "legend": "Quarkus Worker Pool - 90th centile"
+                , "lineColor": "FireBrick" 
+            }
+            , {
+                "selector": "quarkus-worker-pool-response-50"
+                , "legend": "Quarkus Worker Pool - 50th centile"
+                , "lineColor": "OrangeRed" 
+            }        
+            , {
+                "selector": "quarkus-worker-pool-meanResponse"
+                , "legend": "Quarkus Worker Pool - Mean"
+                , "lineColor": "DarkRed" 
+            }
+
+        ]
+    }
+    ,{
+        "output": "average-cpu-vs-throughput"
+        , "title" : "Microbenchmark - Average CPU Utilization vs Throughput"
+        , "xAxisTile":  "Throughput (req/sec)"
+        , "yPrimaryAxisTitle": "Mean CPU Utilization (%)"
+        , "legendXanchor": 200
+        , "legendYanchor": 250
+        , "yScalePrimaryMin": 0 
+        , "yScalePrimaryMax": 100 
+        , "fillArea": true
+        , "primaryDataset": [
+            {
+                "selector": "quarkus-worker-pool-avgCpu"
+                , "legend": "Quarkus - Work Pool"
+                , "lineColor": "Red" 
+            }
+
+            , {
+                "selector": "quarkus-io-thread-avgCpu"
+                , "legend": "Quarkus - Event Loop"
+                , "lineColor": "steelblue" 
+            }
+
+        ]
+    }
+    ,
+    {
+        "output": "mean-rss-vs-throughput"
+        , "title" : "Microbenchmark - Mean RSS vs Throughput"
+        , "xAxisTile":  "Throughput (req/sec)"
+        , "yPrimaryAxisTitle": "Mean RSS (MB)"
+        , "legendXanchor": 200
+        , "legendYanchor": 20
+        , "yScalePrimaryMin": 0 
+        , "fillArea": true
+        , "primaryDataset": [
+            {
+                "selector": "quarkus-worker-pool-avgRss"
+                , "legend": "Quarkus - Work Pool"
+                , "lineColor": "Red" 
+            }
+            , {
+                "selector": "quarkus-io-thread-avgRss"
+                , "legend": "Quarkus - Event Loop"
+                , "lineColor": "SteelBlue" 
+            }
+        ]
+    }
+
+
+]

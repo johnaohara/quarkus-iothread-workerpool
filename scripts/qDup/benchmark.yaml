@@ -1,0 +1,163 @@
+name: Quarkus Event Loop vs Worker Pool
+scripts:
+
+  define-signals:
+    - for-each: RUNTIME ${{RUNTIMES}}
+      then:
+        - set-signal: ${{RUNTIME.name}}-READY 1
+        - set-signal: ${{RUNTIME.name}}-DONE 1
+        - for-each: RUN_RATE ${{RUNTIME.runRates}}
+          then:
+            - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START 1
+            - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1
+            - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1
+            - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1
+
+  clear-server-dirs:
+    - sh: if [ -d ${{SERVER_FILE_PATH}} ]; then rm -Rf ${{SERVER_FILE_PATH}}; fi
+    - sh: mkdir -p ${{SERVER_FILE_PATH}}/output
+
+  clear-client-dirs:
+    - sh: if [ -d ${{CLIENT_FILE_PATH}} ]; then rm -Rf ${{CLIENT_FILE_PATH}}; fi
+    - sh: mkdir -p ${{CLIENT_FILE_PATH}}/output
+
+
+
+  build-applications:
+    - sh: sdk use java ${{JAVA_VERSION}}
+    - sh: java --version
+    - sh: cd ${{SERVER_FILE_PATH}}
+    - sh: git -c http.sslVerify=false clone ${{TEST_REPO_URL}}
+    - sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}
+    - sh: git checkout ${{TEST_REPO_BRANCH}}
+    - sh: git rev-parse HEAD
+    - sh: npm install request
+    - for-each: RUNTIME ${{RUNTIMES}}
+      then:
+        - sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}/${{RUNTIME.name}}
+        - sh: eval ${{RUNTIME.testCmd}} > /dev/null #First build *might* download all artifacts - discard
+        - sh: echo "" > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.test.out
+        - sh: for i in  $(seq 1 ${{TEST_ITERATIONS}}); do eval ${{RUNTIME.testCmd}} >> ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.test.out; done
+        - sh: echo "" > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.build.out
+        - sh: for i in  $(seq 1 ${{TEST_ITERATIONS}}); do eval ${{RUNTIME.buildCmd}} >> ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.build.out; done
+        - sh: docker build -f ${{RUNTIME.dockerfile}} -t ${{RUNTIME.dockerImageName}} .
+        - sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}
+        - sh: echo "" > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.timeFirstRequest.out
+        - sh: for i in  $(seq 1 ${{TEST_ITERATIONS}}); do eval node time.js ${{RUNTIME.name}}/target/${{RUNTIME.targetJar}} >> ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.timeFirstRequest.out; done
+        - queue-download: ${{SERVER_FILE_PATH}}/output/*
+
+  start-applications:
+    - sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}
+    - for-each: RUNTIME ${{RUNTIMES}}
+      then:
+        - sh: docker stop ${{RUNTIME.name}} #Force a stop, in case we have a container running with same name
+        - sh: docker run --rm -d --network=host --cpus=${{DOCKER_CPUS}} --memory=${{DOCKER_MEM}} --name=${{RUNTIME.name}} ${{RUNTIME.dockerImageName}}:latest
+        - sh: sleep 5s
+        - sh: ps -AF | grep ${{RUNTIME.targetJar}} | grep -v grep | awk '{print $2}'
+          then:
+            - set-state: RUN.JAVA_APP_PID
+        - sh: curl  -s -w "%{http_code}\n"  -o ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.env.out ${{ENVIRONMENT_URL}}
+        - signal: ${{RUNTIME.name}}-READY
+        - wait-for: ${{RUNTIME.name}}-DONE
+        - sh: docker logs ${{RUNTIME.name}} > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.run.log
+        - queue-download: ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.run.log
+        - sh: docker stop ${{RUNTIME.name}}
+        - sh: sleep 5s #wait for java process to exit
+
+
+  generate-load:
+    - for-each: RUNTIME ${{RUNTIMES}}
+      then:
+        - wait-for: ${{RUNTIME.name}}-READY
+        - for-each: RUN_RATE ${{RUNTIME.runRates}}
+          then:
+            - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START
+            - sh: wrk2 -t 4 -c 100 -d60s -R ${{RUN_RATE}} ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP.wrk2.out
+            - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END
+            - sh: sleep 5s
+            - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START
+            - sh: wrk2 -t 4 -c 100 -d60s -R ${{RUN_RATE}} --latency ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE.wrk2.out
+            - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END
+        - signal: ${{RUNTIME.name}}-DONE
+    - queue-download: ${{CLIENT_FILE_PATH}}/output/*
+
+  capture-platform-stats:
+    - for-each: RUNTIME ${{RUNTIMES}}
+      then:
+        - for-each: RUN_RATE ${{RUNTIME.runRates}}
+          then:
+            - wait-for: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START
+            - sh: top -b  -d 1 -p ${{RUN.JAVA_APP_PID}} | grep java > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-top.out &
+            - sh: export TOP_PID=$!
+            - wait-for: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END
+            - sh: kill -9 $TOP_PID
+            - wait-for: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START
+            - sh: top -b  -d 1 -p ${{RUN.JAVA_APP_PID}} | grep java > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-top.out &
+            - sh: export TOP_PID=$!
+            - wait-for: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END
+            - sh: kill -9 $TOP_PID
+
+hosts:
+  client: johara@localhost:22
+  server: johara@localhost:22
+
+roles:
+
+  client:
+    hosts: [client]
+    setup-scripts:
+      - clear-client-dirs
+    run-scripts:
+      - generate-load
+  server:
+    hosts: [server]
+    setup-scripts:
+      - define-signals
+      - clear-server-dirs
+      - build-applications
+    run-scripts:
+      - start-applications
+      - capture-platform-stats
+
+states:
+
+  TEST_REPO_URL: https://github.com/johnaohara/quarkus-iothread-workerpool.git
+  TEST_REPO_DIR: quarkus-iothread-workerpool
+  TEST_REPO_BRANCH: master
+  SERVER_FILE_PATH: /tmp/quarkus-test/server/
+  CLIENT_FILE_PATH: /tmp/quarkus-test/client/
+
+  TEST_ITERATIONS: 5
+
+  DOCKER_CPUS: 4
+  DOCKER_MEM: 256m
+
+  RUNTIMES: [
+      {
+          name: 'quarkus-io-thread'
+        , buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-io-thread -Dquarkus.package.uber-jar=true'
+        , dockerfile: src/main/docker/Dockerfile.jvm
+        , dockerImageName: framework/quarkus-io-thread
+        , testCmd: './mvnw clean test'
+        , targetJar: 'quarkus-io-thread-runner.jar'
+#        , runRates: [20000, 30000, 40000, 45000, 47000, 48000, 50000, 60000, 80000, 100000, 120000, 122000, 124000, 126000]
+        , runRates: [10000, 20000]
+      }
+    , {
+          name: 'quarkus-worker-pool'
+        , buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-worker-pool -Dquarkus.package.uber-jar=true'
+        , dockerfile: src/main/docker/Dockerfile.jvm
+        , dockerImageName: framework/quarkus-worker-pool
+        , testCmd: './mvnw clean test'
+        , javaOptions: ' '
+        , targetJar: 'quarkus-worker-pool-runner.jar'
+#        , runRates: [10000, 20000, 30000, 40000, 42000, 44000, 46000, 48000]
+        , runRates: [10000, 20000]
+      }
+  ]
+
+
+  TEST_ENDPOINT : 'http://{SERVER_HOST}:8080/hello/Bob'
+  ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
+
+  JAVA_VERSION: '14.0.0-open'

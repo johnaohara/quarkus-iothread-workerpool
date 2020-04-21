@@ -1,18 +1,16 @@
-# Quarkus 1.3.1 - On the difference between the IO thread and a worker thread: a microbenchmark story
+#On the difference between the IO thread and a worker thread: a microbenchmark story
 
-This repo contains the source code, results and scripts used for the quarkus blog post `On the difference between the IO thread and a worker thread: a microbenchmark story`
+This repository contains the source code, results and scripts used to generate the data used in the Quarkus blog post `On the difference between the IO thread and a worker thread: a microbenchmark story`
 
 Docker is used to create the environment available to the System Under Test
 
-We use [wrk2](https://github.com/giltene/wrk2) to drive the load from the client machine to the server running the System Under Test.  The understand why we ues wrk2, please read http://highscalability.com/blog/2015/10/5/your-load-generator-is-probably-lying-to-you-take-the-red-pi.html  
+We use [wrk2](https://github.com/giltene/wrk2) to drive the load from the client machine to the server running the System Under Test.  To understand why we ues wrk2, please read http://highscalability.com/blog/2015/10/5/your-load-generator-is-probably-lying-to-you-take-the-red-pi.html  
 
-Running the benchmark is managed by a qDup script.  qDup is an automation tool that provides a way to coordinate multiple terminal shell connections for queuing performance tests and collecting output files  
+Running the benchmark is managed by a [qDup](https://github.com/Hyperfoil/qDup)  script.  qDup is an automation tool that provides a way to coordinate multiple terminal shell connections for queuing performance tests and collecting output files  
 
 Result parsing is provided by a custom jbang script
 
-Timing of system startup and results graphing is provided by node.js scripts
-
-## Results 
+Timing of system startup and results graphing is provided by [node.js](https://nodejs.org/en/) scripts
 
 ## Running the benchmark
 
@@ -23,15 +21,51 @@ Timing of system startup and results graphing is provided by node.js scripts
  - [node.js](https://nodejs.org/en/)
  - [qDup](https://github.com/Hyperfoil/qDup/releases/tag/release-0.4.1)
  - [wrk2](https://github.com/giltene/wrk2)
+ - [jbang](https://github.com/maxandersen/jbang)
 
 ### Setup
 
-1. Ensure Docker Deamon is running on the server that you wish to run the applications. Please refer to Docker installation documentation for your particular system.
+1. Ensure [docker](https://docs.docker.com/get-docker/) deamon is running on the server that you wish to run the applications. Please refer to Docker installation documentation for your particular operating system.
 
 2. Install [node.js](https://nodejs.org/en/) on the server that will be used to run the benchmark applications.
 
-3. Install [sdkman](https://sdkman.io/) on the server  that will be used to run the benchmark applications.
+3. Install [sdkman](https://sdkman.io/install) on the server that will be used to run the benchmark applications.
 
+4. Install [jbang](https://github.com/maxandersen/jbang) on the server that will be used to run the benchmark applications.
+
+    ```shell script
+    $ sdk install jbang
+    ```
+
+4. Build and install [wrk2](https://github.com/giltene/wrk2/wiki/Installing-wrk2-on-Linux) on the client machine that will be used to drive load to the server
+
+    CentOS / RedHat / Fedora
+    
+    ```shell script
+    sudo yum -y groupinstall 'Development Tools'
+    sudo yum -y install openssl-devel git
+    git clone https://github.com/giltene/wrk2.git
+    cd wrk2
+    make
+    # move the executable to somewhere in your PATH
+    # to find your PATH
+    sudo echo $PATH
+    # Select appropriate PATH
+    # CentOS 7 with cPanel PATH example: sudo cp wrk /usr/local/bin
+    sudo cp wrk /somewhere/in/your/PATH
+    ```
+    
+    Ubuntu/Debian (clean box)
+    
+    ```shell script
+    sudo apt-get update
+    sudo apt-get install -y build-essential libssl-dev git zlib1g-dev
+    git clone https://github.com/giltene/wrk2.git
+    cd wrk2
+    make
+    # move the executable to somewhere in your PATH
+    sudo cp wrk /usr/local/bin
+    ```
 4. Ensure that you are able to open a remote SSH connection to the client and server machines from your current machine, without the need to enter a password.
 
     You can do this by adding your public ssh key to `~/.ssh/authorized_keys` on the client and server machines
@@ -71,9 +105,21 @@ Timing of system startup and results graphing is provided by node.js scripts
 
 8. Results and graphs will be available in `./results/runResult.json` and `./results/graphs/` respectively.
 
-### Test Environment
+## Results 
 
-## System Under Test
+Quarkus 999-SNAPSHOT
+
+| Quarkus - 999-SNAPSHOT - 4 CPU's | Worker Pool | IO Thread |
+| --- | --- | --- |
+|Mean Build Time (ms) |  |  |
+|Mean Test Time (ms) |  |  |
+|Mean Start Time to First Request (ms) |  |  |
+|Max RSS (MB) |  |  |
+|Max Throughput (req/sec) |  |  |
+|Max Req/Sec/MB |  | 
+
+
+## Test Environment
 
 ### Server
 

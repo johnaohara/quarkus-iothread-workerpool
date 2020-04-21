@@ -119,6 +119,13 @@ Quarkus 1.3.1.Final
 |Max Req/Sec/MB | 332.7 | 1,262.1
 
 
+![Mean Response Time vs Throughput](https://github.com/johnaohara/quarkus-iothread-workerpool/raw/1.3.1.Final/results/graphs/mean-response-vs-throughput.png "Mean Response Time vs Throughput")
+
+![Mean RSS vs Throughput](https://github.com/johnaohara/quarkus-iothread-workerpool/raw/1.3.1.Final/results/graphs/mean-response-vs-throughput.png "Mean RSS vs Throughput")
+
+![Average CPU Utilization vs Throughput](https://github.com/johnaohara/quarkus-iothread-workerpool/raw/1.3.1.Final/results/graphs/mean-response-vs-throughput.png "Average CPU Utilization vs Throughput")
+
+
 ## Test Environment
 
 ### Server

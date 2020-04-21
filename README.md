@@ -44,7 +44,7 @@ Timing of system startup and results graphing is provided by node.js scripts
       client: {USER}@{CLIENT_HOST}:22
       server: {USER}@{SERVER_HOST}:22
    ...
-     TEST_ENDPOINT : 'http://{SERVER_HOST}:8080/hello/Bob'
+     TEST_ENDPOINT : http://{SERVER_HOST}:8080/hello/Bob
      ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
    ...
     ``` 

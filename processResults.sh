@@ -6,7 +6,7 @@ CLIENT=$3
 
 PROJ_DIR=$(pwd)
 
-./scripts/resultsProcessing/ProcessResults.java -c $CORES -i $PROJ_DIR/results/data/$CLIENT:$PROJ_DIR/results/data/$SERVER -o  $PROJ_DIR/results/runResult.json
+jbang ./scripts/resultsProcessing/ProcessResults.java -c $CORES -i $PROJ_DIR/results/data/$CLIENT:$PROJ_DIR/results/data/$SERVER -o  $PROJ_DIR/results/runResult.json
 
 cd ./scripts/graphsGeneration/
 mkdir $PROJ_DIR/results/graphs

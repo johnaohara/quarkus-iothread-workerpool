@@ -10,7 +10,7 @@
         , "primaryDataset": [
             {
                 "selector": "quarkus-io-thread-meanResponse"
-                , "legend": "Quarkus - Event Loop"
+                , "legend": "Quarkus - IO Thread"
                 , "lineColor": "steelblue"
             }
             , {
@@ -32,27 +32,27 @@
         , "primaryDataset": [
             {
                 "selector": "quarkus-io-thread-response-99999"
-                , "legend": "Quarkus Event Loop - 99.999th centile"
+                , "legend": "Quarkus IO Thread - 99.999th centile"
                 , "lineColor": "PowderBlue"
             }
             , {
                 "selector": "quarkus-io-thread-response-99"
-                , "legend": "Quarkus Event Loop - 99th centile"
+                , "legend": "Quarkus IO Thread - 99th centile"
                 , "lineColor": "SkyBlue"
             }
             , {
                 "selector": "quarkus-io-thread-response-90"
-                , "legend": "Quarkus Event Loop - 90th centile"
+                , "legend": "Quarkus IO Thread - 90th centile"
                 , "lineColor": "DeepSkyBlue" 
             }
             , {
                 "selector": "quarkus-io-thread-response-50"
-                , "legend": "Quarkus Event Loop - 50th centile"
+                , "legend": "Quarkus IO Thread - 50th centile"
                 , "lineColor": "DodgerBlue" 
             }
             , {
                 "selector": "quarkus-io-thread-meanResponse"
-                , "legend": "Quarkus Event Loop - Mean"
+                , "legend": "Quarkus IO Thread - Mean"
                 , "lineColor": "MidnightBlue" 
             }
             , {
@@ -96,13 +96,13 @@
         , "primaryDataset": [
             {
                 "selector": "quarkus-worker-pool-avgCpu"
-                , "legend": "Quarkus - Work Pool"
+                , "legend": "Quarkus - Worker Pool"
                 , "lineColor": "Red" 
             }
 
             , {
                 "selector": "quarkus-io-thread-avgCpu"
-                , "legend": "Quarkus - Event Loop"
+                , "legend": "Quarkus - IO Thread"
                 , "lineColor": "steelblue" 
             }
 
@@ -121,12 +121,12 @@
         , "primaryDataset": [
             {
                 "selector": "quarkus-worker-pool-avgRss"
-                , "legend": "Quarkus - Work Pool"
+                , "legend": "Quarkus - Worker Pool"
                 , "lineColor": "Red" 
             }
             , {
                 "selector": "quarkus-io-thread-avgRss"
-                , "legend": "Quarkus - Event Loop"
+                , "legend": "Quarkus - IO Thread"
                 , "lineColor": "SteelBlue" 
             }
         ]

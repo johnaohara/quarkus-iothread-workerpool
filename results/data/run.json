@@ -1,0 +1,1502 @@
+{
+  "counters": [],
+  "timestamps": {
+    "setupStart": 1587417444587,
+    "cleanupStop": 1587417454998,
+    "start": 1587417443593,
+    "cleanupStart": 1587417454997,
+    "runStop": 1587417454994
+  },
+  "profiles": {
+    "client-setup@localhost": {
+      "timers": [
+        {
+          "stop": 1587417445152,
+          "nanos": 89535,
+          "name": "waiting in run queue",
+          "start": 1587417445152,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445152,
+          "nanos": 316772,
+          "name": "next",
+          "start": 1587417445152,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445152,
+          "nanos": 135431854,
+          "name": "env",
+          "start": 1587417445016,
+          "millis": 136
+        },
+        {
+          "stop": 1587417445016,
+          "nanos": 222564,
+          "name": "waiting in run queue",
+          "start": 1587417445016,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445016,
+          "nanos": 5415674,
+          "name": "next",
+          "start": 1587417445010,
+          "millis": 6
+        },
+        {
+          "stop": 1587417445010,
+          "nanos": 105631552,
+          "name": "Sh-await-callback:mkdir -p ${{CLIENT_FILE_PATH}}/output",
+          "start": 1587417444905,
+          "millis": 105
+        },
+        {
+          "stop": 1587417444905,
+          "nanos": 3006783,
+          "name": "Sh-invoke:mkdir -p ${{CLIENT_FILE_PATH}}/output",
+          "start": 1587417444902,
+          "millis": 3
+        },
+        {
+          "stop": 1587417444902,
+          "nanos": 10216,
+          "name": "sh: mkdir -p ${{CLIENT_FILE_PATH}}/output",
+          "start": 1587417444902,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444902,
+          "nanos": 263195,
+          "name": "waiting in run queue",
+          "start": 1587417444901,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444901,
+          "nanos": 411588,
+          "name": "next",
+          "start": 1587417444901,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444901,
+          "nanos": 105806491,
+          "name": "Sh-await-callback:if [ -d ${{CLIENT_FILE_PATH}} ]; then rm -Rf ${{CLIENT_FILE_PATH}}; fi",
+          "start": 1587417444795,
+          "millis": 106
+        },
+        {
+          "stop": 1587417444795,
+          "nanos": 6470517,
+          "name": "Sh-invoke:if [ -d ${{CLIENT_FILE_PATH}} ]; then rm -Rf ${{CLIENT_FILE_PATH}}; fi",
+          "start": 1587417444789,
+          "millis": 6
+        },
+        {
+          "stop": 1587417444789,
+          "nanos": 231588,
+          "name": "sh: if [ -d ${{CLIENT_FILE_PATH}} ]; then rm -Rf ${{CLIENT_FILE_PATH}}; fi",
+          "start": 1587417444788,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444788,
+          "nanos": 334992,
+          "name": "waiting in run queue",
+          "start": 1587417444788,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444788,
+          "nanos": 359999,
+          "name": "next",
+          "start": 1587417444788,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444788,
+          "nanos": 22791,
+          "name": "clear-client-dirs",
+          "start": 1587417444788,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444788,
+          "nanos": 678107,
+          "name": "waiting in run queue",
+          "start": 1587417444787,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444787,
+          "nanos": 304069,
+          "name": "next",
+          "start": 1587417444787,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444787,
+          "nanos": 112680,
+          "name": "script-cmd: clear-client-dirs",
+          "start": 1587417444787,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444787,
+          "nanos": 12921605,
+          "name": "waiting in run queue",
+          "start": 1587417444774,
+          "millis": 13
+        },
+        {
+          "stop": 1587417444774,
+          "nanos": 511560,
+          "name": "next",
+          "start": 1587417444773,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444773,
+          "nanos": 180447931,
+          "name": "env",
+          "start": 1587417444593,
+          "millis": 180
+        },
+        {
+          "stop": 1587417444593,
+          "nanos": 3009665,
+          "name": "waiting in run queue",
+          "start": 1587417444590,
+          "millis": 3
+        },
+        {
+          "stop": 1587417444590,
+          "nanos": 699979,
+          "name": "next",
+          "start": 1587417444589,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444589,
+          "nanos": 48583,
+          "name": "client-setup",
+          "start": 1587417444589,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444589,
+          "nanos": 463602,
+          "name": "waiting in run queue",
+          "start": 1587417444588,
+          "millis": 1
+        }
+      ],
+      "stop": 1587417445152,
+      "nanos": 563575444,
+      "name": "client-setup@localhost",
+      "start": 1587417444588,
+      "millis": 564
+    },
+    "server-setup@localhost": {
+      "timers": [
+        {
+          "stop": -1,
+          "nanos": -2184671265779710,
+          "name": "Sh-await-callback:npm install request",
+          "start": 1587417453251,
+          "millis": -1587417453252
+        },
+        {
+          "stop": 1587417453251,
+          "nanos": 1260965,
+          "name": "Sh-invoke:npm install request",
+          "start": 1587417453250,
+          "millis": 1
+        },
+        {
+          "stop": 1587417453249,
+          "nanos": 74026,
+          "name": "sh: npm install request",
+          "start": 1587417453249,
+          "millis": 0
+        },
+        {
+          "stop": 1587417453249,
+          "nanos": 523336,
+          "name": "waiting in run queue",
+          "start": 1587417453249,
+          "millis": 0
+        },
+        {
+          "stop": 1587417453248,
+          "nanos": 857168,
+          "name": "next",
+          "start": 1587417453247,
+          "millis": 1
+        },
+        {
+          "stop": 1587417453247,
+          "nanos": 108384975,
+          "name": "Sh-await-callback:git rev-parse HEAD",
+          "start": 1587417453139,
+          "millis": 108
+        },
+        {
+          "stop": 1587417453139,
+          "nanos": 1376963,
+          "name": "Sh-invoke:git rev-parse HEAD",
+          "start": 1587417453137,
+          "millis": 2
+        },
+        {
+          "stop": 1587417453137,
+          "nanos": 71138,
+          "name": "sh: git rev-parse HEAD",
+          "start": 1587417453137,
+          "millis": 0
+        },
+        {
+          "stop": 1587417453137,
+          "nanos": 625116,
+          "name": "waiting in run queue",
+          "start": 1587417453136,
+          "millis": 1
+        },
+        {
+          "stop": 1587417453136,
+          "nanos": 774953,
+          "name": "next",
+          "start": 1587417453135,
+          "millis": 1
+        },
+        {
+          "stop": 1587417453135,
+          "nanos": 135465842,
+          "name": "Sh-await-callback:git checkout ${{TEST_REPO_BRANCH}}",
+          "start": 1587417452999,
+          "millis": 136
+        },
+        {
+          "stop": 1587417452999,
+          "nanos": 5653245,
+          "name": "Sh-invoke:git checkout ${{TEST_REPO_BRANCH}}",
+          "start": 1587417452994,
+          "millis": 5
+        },
+        {
+          "stop": 1587417452993,
+          "nanos": 40420,
+          "name": "sh: git checkout ${{TEST_REPO_BRANCH}}",
+          "start": 1587417452993,
+          "millis": 0
+        },
+        {
+          "stop": 1587417452993,
+          "nanos": 709513,
+          "name": "waiting in run queue",
+          "start": 1587417452992,
+          "millis": 1
+        },
+        {
+          "stop": 1587417452992,
+          "nanos": 3821049,
+          "name": "next",
+          "start": 1587417452988,
+          "millis": 4
+        },
+        {
+          "stop": 1587417452988,
+          "nanos": 102946883,
+          "name": "Sh-await-callback:cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}",
+          "start": 1587417452885,
+          "millis": 103
+        },
+        {
+          "stop": 1587417452885,
+          "nanos": 8885854,
+          "name": "Sh-invoke:cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}",
+          "start": 1587417452876,
+          "millis": 9
+        },
+        {
+          "stop": 1587417452876,
+          "nanos": 146194,
+          "name": "sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}",
+          "start": 1587417452876,
+          "millis": 0
+        },
+        {
+          "stop": 1587417452875,
+          "nanos": 373771,
+          "name": "waiting in run queue",
+          "start": 1587417452875,
+          "millis": 0
+        },
+        {
+          "stop": 1587417452875,
+          "nanos": 1283927,
+          "name": "next",
+          "start": 1587417452874,
+          "millis": 1
+        },
+        {
+          "stop": 1587417452874,
+          "nanos": 4365174656,
+          "name": "Sh-await-callback:git -c http.sslVerify=false clone ${{TEST_REPO_URL}}",
+          "start": 1587417448508,
+          "millis": 4366
+        },
+        {
+          "stop": 1587417448508,
+          "nanos": 2567390,
+          "name": "Sh-invoke:git -c http.sslVerify=false clone ${{TEST_REPO_URL}}",
+          "start": 1587417448506,
+          "millis": 2
+        },
+        {
+          "stop": 1587417448506,
+          "nanos": 15247,
+          "name": "sh: git -c http.sslVerify=false clone ${{TEST_REPO_URL}}",
+          "start": 1587417448506,
+          "millis": 0
+        },
+        {
+          "stop": 1587417448505,
+          "nanos": 249304,
+          "name": "waiting in run queue",
+          "start": 1587417448505,
+          "millis": 0
+        },
+        {
+          "stop": 1587417448505,
+          "nanos": 571808,
+          "name": "next",
+          "start": 1587417448505,
+          "millis": 0
+        },
+        {
+          "stop": 1587417448504,
+          "nanos": 101904060,
+          "name": "Sh-await-callback:cd ${{SERVER_FILE_PATH}}",
+          "start": 1587417448403,
+          "millis": 101
+        },
+        {
+          "stop": 1587417448402,
+          "nanos": 5190532,
+          "name": "Sh-invoke:cd ${{SERVER_FILE_PATH}}",
+          "start": 1587417448397,
+          "millis": 5
+        },
+        {
+          "stop": 1587417448397,
+          "nanos": 109442,
+          "name": "sh: cd ${{SERVER_FILE_PATH}}",
+          "start": 1587417448397,
+          "millis": 0
+        },
+        {
+          "stop": 1587417448397,
+          "nanos": 607909,
+          "name": "waiting in run queue",
+          "start": 1587417448396,
+          "millis": 1
+        },
+        {
+          "stop": 1587417448396,
+          "nanos": 870776,
+          "name": "next",
+          "start": 1587417448395,
+          "millis": 1
+        },
+        {
+          "stop": 1587417448395,
+          "nanos": 157627293,
+          "name": "Sh-await-callback:java --version",
+          "start": 1587417448237,
+          "millis": 158
+        },
+        {
+          "stop": 1587417448237,
+          "nanos": 946676,
+          "name": "Sh-invoke:java --version",
+          "start": 1587417448236,
+          "millis": 1
+        },
+        {
+          "stop": 1587417448236,
+          "nanos": 52859,
+          "name": "sh: java --version",
+          "start": 1587417448236,
+          "millis": 0
+        },
+        {
+          "stop": 1587417448236,
+          "nanos": 2881130,
+          "name": "waiting in run queue",
+          "start": 1587417448233,
+          "millis": 3
+        },
+        {
+          "stop": 1587417448233,
+          "nanos": 2062963,
+          "name": "next",
+          "start": 1587417448231,
+          "millis": 2
+        },
+        {
+          "stop": 1587417448231,
+          "nanos": 2261085553,
+          "name": "Sh-await-callback:sdk use java ${{JAVA_VERSION}}",
+          "start": 1587417445970,
+          "millis": 2261
+        },
+        {
+          "stop": 1587417445969,
+          "nanos": 3768199,
+          "name": "Sh-invoke:sdk use java ${{JAVA_VERSION}}",
+          "start": 1587417445966,
+          "millis": 3
+        },
+        {
+          "stop": 1587417445965,
+          "nanos": 34485,
+          "name": "sh: sdk use java ${{JAVA_VERSION}}",
+          "start": 1587417445965,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445965,
+          "nanos": 383733,
+          "name": "waiting in run queue",
+          "start": 1587417445965,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445965,
+          "nanos": 890351,
+          "name": "next",
+          "start": 1587417445964,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445964,
+          "nanos": 52784,
+          "name": "build-applications",
+          "start": 1587417445964,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445964,
+          "nanos": 777330,
+          "name": "waiting in run queue",
+          "start": 1587417445963,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445963,
+          "nanos": 934428,
+          "name": "next",
+          "start": 1587417445962,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445962,
+          "nanos": 1090479,
+          "name": "script-cmd: build-applications",
+          "start": 1587417445961,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445960,
+          "nanos": 461272,
+          "name": "waiting in run queue",
+          "start": 1587417445960,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445960,
+          "nanos": 858433,
+          "name": "next",
+          "start": 1587417445959,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445959,
+          "nanos": 102356586,
+          "name": "Sh-await-callback:mkdir -p ${{SERVER_FILE_PATH}}/output",
+          "start": 1587417445857,
+          "millis": 102
+        },
+        {
+          "stop": 1587417445856,
+          "nanos": 1669330,
+          "name": "Sh-invoke:mkdir -p ${{SERVER_FILE_PATH}}/output",
+          "start": 1587417445855,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445855,
+          "nanos": 10799,
+          "name": "sh: mkdir -p ${{SERVER_FILE_PATH}}/output",
+          "start": 1587417445855,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445855,
+          "nanos": 217640,
+          "name": "waiting in run queue",
+          "start": 1587417445854,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445854,
+          "nanos": 290493,
+          "name": "next",
+          "start": 1587417445854,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445854,
+          "nanos": 103408086,
+          "name": "Sh-await-callback:if [ -d ${{SERVER_FILE_PATH}} ]; then rm -Rf ${{SERVER_FILE_PATH}}; fi",
+          "start": 1587417445751,
+          "millis": 103
+        },
+        {
+          "stop": 1587417445751,
+          "nanos": 6114772,
+          "name": "Sh-invoke:if [ -d ${{SERVER_FILE_PATH}} ]; then rm -Rf ${{SERVER_FILE_PATH}}; fi",
+          "start": 1587417445745,
+          "millis": 6
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 15087,
+          "name": "sh: if [ -d ${{SERVER_FILE_PATH}} ]; then rm -Rf ${{SERVER_FILE_PATH}}; fi",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 82530,
+          "name": "waiting in run queue",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 87830,
+          "name": "next",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 14646,
+          "name": "clear-server-dirs",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 85429,
+          "name": "waiting in run queue",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 210151,
+          "name": "next",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 81577,
+          "name": "script-cmd: clear-server-dirs",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 130277,
+          "name": "waiting in run queue",
+          "start": 1587417445744,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445744,
+          "nanos": 263947,
+          "name": "skip",
+          "start": 1587417445743,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445743,
+          "nanos": 1456212,
+          "name": "for-each: RUNTIME ${{RUNTIMES}}",
+          "start": 1587417445742,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445742,
+          "nanos": 58861,
+          "name": "waiting in run queue",
+          "start": 1587417445742,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445742,
+          "nanos": 5418,
+          "name": "next",
+          "start": 1587417445742,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445742,
+          "nanos": 7485,
+          "name": "callback-[for-each: RUNTIME ${{RUNTIMES}}]",
+          "start": 1587417445742,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445742,
+          "nanos": 115895,
+          "name": "waiting in run queue",
+          "start": 1587417445742,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445742,
+          "nanos": 227390,
+          "name": "skip",
+          "start": 1587417445741,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 307128,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445741,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 70239,
+          "name": "waiting in run queue",
+          "start": 1587417445741,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 5894,
+          "name": "next",
+          "start": 1587417445741,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 7260,
+          "name": "callback-[for-each: RUN_RATE ${{RUNTIME.runRates}}]",
+          "start": 1587417445741,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 144372,
+          "name": "waiting in run queue",
+          "start": 1587417445741,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445741,
+          "nanos": 383303,
+          "name": "next",
+          "start": 1587417445740,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445740,
+          "nanos": 823996,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1",
+          "start": 1587417445739,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445739,
+          "nanos": 158950,
+          "name": "waiting in run queue",
+          "start": 1587417445739,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445739,
+          "nanos": 261261,
+          "name": "next",
+          "start": 1587417445739,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445739,
+          "nanos": 1113508,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1",
+          "start": 1587417445738,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445738,
+          "nanos": 140669,
+          "name": "waiting in run queue",
+          "start": 1587417445738,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445738,
+          "nanos": 247456,
+          "name": "next",
+          "start": 1587417445737,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445737,
+          "nanos": 1152363,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1",
+          "start": 1587417445736,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445736,
+          "nanos": 392958,
+          "name": "waiting in run queue",
+          "start": 1587417445736,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445736,
+          "nanos": 407545,
+          "name": "next",
+          "start": 1587417445735,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445735,
+          "nanos": 1067353,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START 1",
+          "start": 1587417445734,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445734,
+          "nanos": 129662,
+          "name": "waiting in run queue",
+          "start": 1587417445734,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445734,
+          "nanos": 238068,
+          "name": "next",
+          "start": 1587417445734,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445734,
+          "nanos": 440117,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445733,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445733,
+          "nanos": 120926,
+          "name": "waiting in run queue",
+          "start": 1587417445733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445733,
+          "nanos": 9829,
+          "name": "next",
+          "start": 1587417445733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445733,
+          "nanos": 17994,
+          "name": "callback-[for-each: RUN_RATE ${{RUNTIME.runRates}}]",
+          "start": 1587417445733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445733,
+          "nanos": 128564,
+          "name": "waiting in run queue",
+          "start": 1587417445733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445733,
+          "nanos": 295522,
+          "name": "next",
+          "start": 1587417445732,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445732,
+          "nanos": 1138246,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1",
+          "start": 1587417445731,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445731,
+          "nanos": 140394,
+          "name": "waiting in run queue",
+          "start": 1587417445731,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445731,
+          "nanos": 276212,
+          "name": "next",
+          "start": 1587417445731,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445731,
+          "nanos": 1240474,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1",
+          "start": 1587417445729,
+          "millis": 2
+        },
+        {
+          "stop": 1587417445729,
+          "nanos": 175375,
+          "name": "waiting in run queue",
+          "start": 1587417445729,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445729,
+          "nanos": 274481,
+          "name": "next",
+          "start": 1587417445729,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445729,
+          "nanos": 3016208,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1",
+          "start": 1587417445726,
+          "millis": 3
+        },
+        {
+          "stop": 1587417445726,
+          "nanos": 367944,
+          "name": "waiting in run queue",
+          "start": 1587417445725,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445725,
+          "nanos": 588048,
+          "name": "next",
+          "start": 1587417445725,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445725,
+          "nanos": 3412016,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START 1",
+          "start": 1587417445721,
+          "millis": 4
+        },
+        {
+          "stop": 1587417445721,
+          "nanos": 298360,
+          "name": "waiting in run queue",
+          "start": 1587417445721,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445721,
+          "nanos": 498955,
+          "name": "next",
+          "start": 1587417445720,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445720,
+          "nanos": 20567065,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445700,
+          "millis": 20
+        },
+        {
+          "stop": 1587417445700,
+          "nanos": 139077,
+          "name": "waiting in run queue",
+          "start": 1587417445700,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445700,
+          "nanos": 253686,
+          "name": "next",
+          "start": 1587417445699,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445699,
+          "nanos": 700699,
+          "name": "set-signal: ${{RUNTIME.name}}-DONE 1",
+          "start": 1587417445699,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445699,
+          "nanos": 172095,
+          "name": "waiting in run queue",
+          "start": 1587417445698,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445698,
+          "nanos": 243890,
+          "name": "next",
+          "start": 1587417445698,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445698,
+          "nanos": 764327,
+          "name": "set-signal: ${{RUNTIME.name}}-READY 1",
+          "start": 1587417445697,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445697,
+          "nanos": 395968,
+          "name": "waiting in run queue",
+          "start": 1587417445697,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445697,
+          "nanos": 724877,
+          "name": "next",
+          "start": 1587417445696,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445696,
+          "nanos": 4212130,
+          "name": "for-each: RUNTIME ${{RUNTIMES}}",
+          "start": 1587417445692,
+          "millis": 4
+        },
+        {
+          "stop": 1587417445692,
+          "nanos": 399060,
+          "name": "waiting in run queue",
+          "start": 1587417445691,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445691,
+          "nanos": 12990,
+          "name": "next",
+          "start": 1587417445691,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445691,
+          "nanos": 18783,
+          "name": "callback-[for-each: RUNTIME ${{RUNTIMES}}]",
+          "start": 1587417445691,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445691,
+          "nanos": 317003,
+          "name": "waiting in run queue",
+          "start": 1587417445691,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445691,
+          "nanos": 421995,
+          "name": "skip",
+          "start": 1587417445691,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445691,
+          "nanos": 559335,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445690,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445690,
+          "nanos": 155931,
+          "name": "waiting in run queue",
+          "start": 1587417445690,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445690,
+          "nanos": 11313,
+          "name": "next",
+          "start": 1587417445690,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445690,
+          "nanos": 13986,
+          "name": "callback-[for-each: RUN_RATE ${{RUNTIME.runRates}}]",
+          "start": 1587417445690,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445690,
+          "nanos": 232443,
+          "name": "waiting in run queue",
+          "start": 1587417445690,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445689,
+          "nanos": 812837,
+          "name": "next",
+          "start": 1587417445689,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445689,
+          "nanos": 2036525,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1",
+          "start": 1587417445687,
+          "millis": 2
+        },
+        {
+          "stop": 1587417445687,
+          "nanos": 337428,
+          "name": "waiting in run queue",
+          "start": 1587417445686,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445686,
+          "nanos": 456868,
+          "name": "next",
+          "start": 1587417445686,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445686,
+          "nanos": 2309609,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1",
+          "start": 1587417445683,
+          "millis": 3
+        },
+        {
+          "stop": 1587417445683,
+          "nanos": 241743,
+          "name": "waiting in run queue",
+          "start": 1587417445683,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445683,
+          "nanos": 550912,
+          "name": "next",
+          "start": 1587417445683,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445682,
+          "nanos": 3832707,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1",
+          "start": 1587417445679,
+          "millis": 3
+        },
+        {
+          "stop": 1587417445679,
+          "nanos": 149799,
+          "name": "waiting in run queue",
+          "start": 1587417445678,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445678,
+          "nanos": 256982,
+          "name": "next",
+          "start": 1587417445678,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445678,
+          "nanos": 1134156,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START 1",
+          "start": 1587417445677,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445677,
+          "nanos": 128882,
+          "name": "waiting in run queue",
+          "start": 1587417445677,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445677,
+          "nanos": 289701,
+          "name": "next",
+          "start": 1587417445677,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445677,
+          "nanos": 495264,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445676,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445676,
+          "nanos": 95862,
+          "name": "waiting in run queue",
+          "start": 1587417445676,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445676,
+          "nanos": 9608,
+          "name": "next",
+          "start": 1587417445676,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445676,
+          "nanos": 18512,
+          "name": "callback-[for-each: RUN_RATE ${{RUNTIME.runRates}}]",
+          "start": 1587417445676,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445676,
+          "nanos": 145406,
+          "name": "waiting in run queue",
+          "start": 1587417445676,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445676,
+          "nanos": 280454,
+          "name": "next",
+          "start": 1587417445675,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445675,
+          "nanos": 1395271,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1",
+          "start": 1587417445674,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445674,
+          "nanos": 146918,
+          "name": "waiting in run queue",
+          "start": 1587417445674,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445674,
+          "nanos": 271436,
+          "name": "next",
+          "start": 1587417445674,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445674,
+          "nanos": 1431089,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1",
+          "start": 1587417445672,
+          "millis": 2
+        },
+        {
+          "stop": 1587417445672,
+          "nanos": 119572,
+          "name": "waiting in run queue",
+          "start": 1587417445672,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445672,
+          "nanos": 297104,
+          "name": "next",
+          "start": 1587417445672,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445672,
+          "nanos": 1548557,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1",
+          "start": 1587417445670,
+          "millis": 2
+        },
+        {
+          "stop": 1587417445670,
+          "nanos": 132812,
+          "name": "waiting in run queue",
+          "start": 1587417445670,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445670,
+          "nanos": 282119,
+          "name": "next",
+          "start": 1587417445670,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445670,
+          "nanos": 1384584,
+          "name": "set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START 1",
+          "start": 1587417445668,
+          "millis": 2
+        },
+        {
+          "stop": 1587417445668,
+          "nanos": 123306,
+          "name": "waiting in run queue",
+          "start": 1587417445668,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445668,
+          "nanos": 185077,
+          "name": "next",
+          "start": 1587417445668,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445668,
+          "nanos": 22540255,
+          "name": "for-each: RUN_RATE ${{RUNTIME.runRates}}",
+          "start": 1587417445645,
+          "millis": 23
+        },
+        {
+          "stop": 1587417445645,
+          "nanos": 85882,
+          "name": "waiting in run queue",
+          "start": 1587417445645,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445645,
+          "nanos": 189864,
+          "name": "next",
+          "start": 1587417445645,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445645,
+          "nanos": 731081,
+          "name": "set-signal: ${{RUNTIME.name}}-DONE 1",
+          "start": 1587417445644,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445644,
+          "nanos": 137272,
+          "name": "waiting in run queue",
+          "start": 1587417445644,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445644,
+          "nanos": 359482,
+          "name": "next",
+          "start": 1587417445644,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445644,
+          "nanos": 1012513,
+          "name": "set-signal: ${{RUNTIME.name}}-READY 1",
+          "start": 1587417445643,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445643,
+          "nanos": 133282,
+          "name": "waiting in run queue",
+          "start": 1587417445643,
+          "millis": 0
+        },
+        {
+          "stop": 1587417445643,
+          "nanos": 546421,
+          "name": "next",
+          "start": 1587417445642,
+          "millis": 1
+        },
+        {
+          "stop": 1587417445642,
+          "nanos": 907076353,
+          "name": "for-each: RUNTIME ${{RUNTIMES}}",
+          "start": 1587417444735,
+          "millis": 907
+        },
+        {
+          "stop": 1587417444735,
+          "nanos": 428280,
+          "name": "waiting in run queue",
+          "start": 1587417444735,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444735,
+          "nanos": 460947,
+          "name": "next",
+          "start": 1587417444734,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444734,
+          "nanos": 397425,
+          "name": "define-signals",
+          "start": 1587417444734,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444734,
+          "nanos": 409739,
+          "name": "waiting in run queue",
+          "start": 1587417444733,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444733,
+          "nanos": 475511,
+          "name": "next",
+          "start": 1587417444733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444733,
+          "nanos": 238432,
+          "name": "script-cmd: define-signals",
+          "start": 1587417444733,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444733,
+          "nanos": 484652,
+          "name": "waiting in run queue",
+          "start": 1587417444732,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444732,
+          "nanos": 707864,
+          "name": "next",
+          "start": 1587417444731,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444731,
+          "nanos": 138723842,
+          "name": "env",
+          "start": 1587417444593,
+          "millis": 138
+        },
+        {
+          "stop": 1587417444593,
+          "nanos": 3012302,
+          "name": "waiting in run queue",
+          "start": 1587417444590,
+          "millis": 3
+        },
+        {
+          "stop": 1587417444590,
+          "nanos": 699980,
+          "name": "next",
+          "start": 1587417444589,
+          "millis": 1
+        },
+        {
+          "stop": 1587417444589,
+          "nanos": 48556,
+          "name": "server-setup",
+          "start": 1587417444589,
+          "millis": 0
+        },
+        {
+          "stop": 1587417444589,
+          "nanos": 277433,
+          "name": "waiting in run queue",
+          "start": 1587417444589,
+          "millis": 0
+        }
+      ],
+      "stop": -1,
+      "nanos": -2184662602904928,
+      "name": "server-setup@localhost",
+      "start": 1587417444589,
+      "millis": -1587417444590
+    }
+  },
+  "latches": [],
+  "state": {
+    "localhost": [],
+    "CLIENT_FILE_PATH": "/tmp/quarkus-test/client/",
+    "DOCKER_MEM": "256m",
+    "SERVER_FILE_PATH": "/tmp/quarkus-test/server/",
+    "DOCKER_CPUS": 4,
+    "TEST_ITERATIONS": 5,
+    "TEST_REPO_BRANCH": "master",
+    "TEST_ENDPOINT": "http://{SERVER_HOST}:8080/hello/Bob",
+    "TEST_REPO_URL": "https://github.com/johnaohara/quarkus-iothread-workerpool.git",
+    "ENVIRONMENT_URL": "http://{SERVER_HOST}:8080/environment",
+    "RUNTIMES": [
+      {
+        "dockerImageName": "framework/quarkus-io-thread",
+        "buildCmd": "./mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-io-thread -Dquarkus.package.uber-jar=true",
+        "dockerfile": "src/main/docker/Dockerfile.jvm",
+        "name": "quarkus-io-thread",
+        "targetJar": "quarkus-io-thread-runner.jar",
+        "runRates": [
+          10000,
+          20000
+        ],
+        "testCmd": "./mvnw clean test"
+      },
+      {
+        "dockerImageName": "framework/quarkus-worker-pool",
+        "buildCmd": "./mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-worker-pool -Dquarkus.package.uber-jar=true",
+        "dockerfile": "src/main/docker/Dockerfile.jvm",
+        "name": "quarkus-worker-pool",
+        "targetJar": "quarkus-worker-pool-runner.jar",
+        "runRates": [
+          10000,
+          20000
+        ],
+        "testCmd": "./mvnw clean test",
+        "javaOptions": " "
+      }
+    ],
+    "TEST_REPO_DIR": "quarkus-iothread-workerpool",
+    "JAVA_VERSION": "14.0.0-open"
+  }
+}RSION": "14.0.0-open"
+  }
+}

@@ -1,6 +1,6 @@
-#On the difference between the IO thread and a worker thread: a microbenchmark story
+# An IO thread and a worker thread walk into a bar: a microbenchmark story
 
-This repository contains the source code, results and scripts used to generate the data used in the Quarkus blog post `On the difference between the IO thread and a worker thread: a microbenchmark story`
+This repository contains the source code, results and scripts used to generate the data used in the Quarkus blog post `An IO thread and a worker thread walk into a bar: a microbenchmark story`
 
 Docker is used to create the environment available to the System Under Test
 

@@ -4,8 +4,8 @@ const request = require("request");
 const pingIntervalMs = 10;
 
 const args = process.argv.slice(2);
-if (args.length == 0) {
-  console.log('The path of java executable jar must be specified !');
+if (args.length === 0) {
+    console.log('The path of java executable jar must be specified !');
 }
 
 const proc = spawn("java", ["-jar", args[0]]);

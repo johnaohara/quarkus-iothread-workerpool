@@ -43,7 +43,7 @@ scripts:
         - sh: docker build -f ${{RUNTIME.dockerfile}} -t ${{RUNTIME.dockerImageName}} .
         - sh: cd ${{SERVER_FILE_PATH}}/${{TEST_REPO_DIR}}
         - sh: echo "" > ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.timeFirstRequest.out
-        - sh: for i in  $(seq 1 ${{TEST_ITERATIONS}}); do eval node time.js ${{RUNTIME.name}}/target/${{RUNTIME.targetJar}} >> ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.timeFirstRequest.out; done
+        - sh: for i in  $(seq 1 ${{TEST_ITERATIONS}}); do eval node scripts/time.js ${{RUNTIME.name}}/target/${{RUNTIME.targetJar}} >> ${{SERVER_FILE_PATH}}/output/${{RUNTIME.name}}.timeFirstRequest.out; done
         - queue-download: ${{SERVER_FILE_PATH}}/output/*
 
   start-applications:
@@ -158,4 +158,4 @@ states:
   TEST_ENDPOINT: http://erik-pc.local:8080/hello/Bob
   ENVIRONMENT_URL: http://erik-pc.local:8080/environment
 
-  JAVA_VERSION: '11.0.0-open'
+  JAVA_VERSION: '14.0.0-open'

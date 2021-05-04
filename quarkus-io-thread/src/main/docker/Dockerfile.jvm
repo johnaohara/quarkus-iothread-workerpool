@@ -1,4 +1,4 @@
-FROM openjdk:11-alpine
+FROM openjdk:14-alpine
 COPY target/quarkus-io-thread-runner.jar quarkus-io-thread-runner.jar
 EXPOSE 8080
 CMD ["java", "-Dcom.sun.management.jmxremote", "-Xmx128m", "-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-jar", "quarkus-io-thread-runner.jar"]

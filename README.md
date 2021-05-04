@@ -19,7 +19,7 @@ Timing of system startup and results graphing is provided by [node.js](https://n
  - Docker
  - [sdkman](https://sdkman.io/)
  - [node.js](https://nodejs.org/en/)
- - [qDup](https://github.com/Hyperfoil/qDup/releases/tag/release-0.4.1)
+ - [qDup](https://github.com/Hyperfoil/qDup/releases/tag/release-0.6.3)
  - [wrk2](https://github.com/giltene/wrk2)
  - [jbang](https://github.com/maxandersen/jbang)
 
@@ -82,22 +82,25 @@ Timing of system startup and results graphing is provided by [node.js](https://n
      ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
    ...
     ``` 
-    
-    where; 
-     - `{USER}` is the username you wish to connect to the remote machine with
-     - `{CLIENT_HOST}` is the fully qualified domain name of the client machine to run generate load
-     - `{SERVER_HOST}` is the fully qualified domain name of the server machine with the docker deamon already running in step (1)
 
-6. Run the benchmark script with qDup: `java -jar {path_to_qDup}/qDup-0.4.1-uber.jar -B ./results/data ./scripts/qDup/benchmark.yaml`. 
-    
-    N.B. this script may appear to freeze, it takes approx 30 mins   to run and will not always write output to the terminal.
+   where;
+   - `{USER}` is the username you wish to connect to the remote machine with
+   - `{CLIENT_HOST}` is the fully qualified domain name of the client machine to run generate load
+   - `{SERVER_HOST}` is the fully qualified domain name of the server machine with the docker deamon already running in
+     step (1)
+
+6. Run the benchmark script with
+   qDup: `java -jar {path_to_qDup}/qDup-0.6.3-uber.jar -B ./results/data ./scripts/qDup/benchmark.yaml`.
+
+   N.B. this script may appear to freeze, it takes approx 30 mins to run and will not always write output to the
+   terminal.
 
 7. After the run has complete, process the run data with `processResults.sh`
 
     ```shell script
     $ ./processResults.sh 4 {CLIENT_HOST} {SERVER_HOST}
     ```   
-   
+
    where;
     - `4` is the number of cpus (this is used to calculate the % cpu utilization)
     - `{CLIENT_HOST}` is the full qualified hostname of the client machine defined in  `scripts/qDup/benchmark.yaml` in step (5)

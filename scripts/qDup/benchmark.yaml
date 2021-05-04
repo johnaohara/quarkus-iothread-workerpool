@@ -72,11 +72,11 @@ scripts:
         - for-each: RUN_RATE ${{RUNTIME.runRates}}
           then:
             - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-START
-            - sh: wrk2 -t 4 -c 100 -d60s -R ${{RUN_RATE}} ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP.wrk2.out
+            - sh: wrk -t 4 -c 100 -d60s -R ${{RUN_RATE}} ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP.wrk2.out
             - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END
             - sh: sleep 5s
             - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START
-            - sh: wrk2 -t 4 -c 100 -d60s -R ${{RUN_RATE}} --latency ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE.wrk2.out
+            - sh: wrk -t 4 -c 100 -d60s -R ${{RUN_RATE}} --latency ${{TEST_ENDPOINT}} > ${{CLIENT_FILE_PATH}}/output/${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE.wrk2.out
             - signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END
         - signal: ${{RUNTIME.name}}-DONE
     - queue-download: ${{CLIENT_FILE_PATH}}/output/*
@@ -98,8 +98,8 @@ scripts:
             - sh: kill -9 $TOP_PID
 
 hosts:
-  client: johara@localhost:22
-  server: johara@localhost:22
+  client: erik@erik-laptop:22
+  server: erik@erik-pc:22
 
 roles:
 
@@ -121,11 +121,11 @@ roles:
 
 states:
 
-  TEST_REPO_URL: https://github.com/johnaohara/quarkus-iothread-workerpool.git
+  TEST_REPO_URL: https://github.com/ErikSimonsen/quarkus-iothread-workerpool
   TEST_REPO_DIR: quarkus-iothread-workerpool
   TEST_REPO_BRANCH: master
-  SERVER_FILE_PATH: /tmp/quarkus-test/server/
-  CLIENT_FILE_PATH: /tmp/quarkus-test/client/
+  SERVER_FILE_PATH: /tmp/quarkus-test/server
+  CLIENT_FILE_PATH: /tmp/quarkus-test/client
 
   TEST_ITERATIONS: 5
 
@@ -133,9 +133,9 @@ states:
   DOCKER_MEM: 256m
 
   RUNTIMES: [
-      {
+    {
           name: 'quarkus-io-thread'
-        , buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-io-thread -Dquarkus.package.uber-jar=true'
+      ,   buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-io-thread -Dquarkus.package.uber-jar=true'
         , dockerfile: src/main/docker/Dockerfile.jvm
         , dockerImageName: framework/quarkus-io-thread
         , testCmd: './mvnw clean test'
@@ -143,19 +143,19 @@ states:
         , runRates: [20000, 30000, 40000, 45000, 47000, 48000, 50000, 60000, 80000, 100000, 120000, 122000, 124000, 126000]
       }
     , {
-          name: 'quarkus-worker-pool'
-        , buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-worker-pool -Dquarkus.package.uber-jar=true'
-        , dockerfile: src/main/docker/Dockerfile.jvm
-        , dockerImageName: framework/quarkus-worker-pool
-        , testCmd: './mvnw clean test'
-        , javaOptions: ' '
-        , targetJar: 'quarkus-worker-pool-runner.jar'
-        , runRates: [10000, 20000, 30000, 40000, 42000, 44000, 46000, 48000]
-      }
+        name: 'quarkus-worker-pool'
+      , buildCmd: './mvnw clean package -DskipTests -Dquarkus.package.output-name=quarkus-worker-pool -Dquarkus.package.uber-jar=true'
+      , dockerfile: src/main/docker/Dockerfile.jvm
+      , dockerImageName: framework/quarkus-worker-pool
+      , testCmd: './mvnw clean test'
+      , javaOptions: ' '
+      , targetJar: 'quarkus-worker-pool-runner.jar'
+      , runRates: [ 10000, 20000, 30000, 40000, 42000, 44000, 46000, 48000, 50000 ]
+    }
   ]
 
 
-  TEST_ENDPOINT : http://{SERVER_HOST}:8080/hello/Bob
-  ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
+  TEST_ENDPOINT: http://erik-pc.local:8080/hello/Bob
+  ENVIRONMENT_URL: http://erik-pc.local:8080/environment
 
-  JAVA_VERSION: '14.0.0-open'
+  JAVA_VERSION: '11.0.0-open'

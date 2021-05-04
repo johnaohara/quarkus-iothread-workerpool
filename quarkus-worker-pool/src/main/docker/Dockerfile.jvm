@@ -1,4 +1,4 @@
 FROM openjdk:11
-COPY target/quarkus-worker-pool-runner.jar quarkus-worker-pool-runner.jar
+COPY target/quarkus-worker-pool.jar quarkus-worker-pool.jar
 EXPOSE 8080
 CMD ["java", "-Dcom.sun.management.jmxremote", "-Xmx128m", "-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-jar", "quarkus-worker-pool-runner.jar"]

@@ -141,8 +141,7 @@ states:
       ,   testCmd: './mvnw clean test'
       ,   targetJar: 'quarkus-io-thread-runner.jar'
       ,   runRates: [ 20000, 30000, 40000, 45000, 47000, 48000, 50000, 60000, 80000, 100000, 120000, 122000, 124000, 126000 ]
-    }
-    , {
+    }, {
         name: 'quarkus-worker-pool'
       , buildCmd: './mvnw clean package -DskipTests'
       , dockerfile: src/main/docker/Dockerfile.jvm

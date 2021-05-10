@@ -150,7 +150,7 @@ states:
       , testCmd: './mvnw clean test'
       , javaOptions: ' '
       , targetJar: 'quarkus-worker-pool-runner.jar'
-      , runRates: [ 10000, 20000, 30000, 40000, 42000, 44000, 46000, 48000, 50000 ]
+      , runRates: [ 10000, 20000, 30000, 40000, 42000, 44000, 46000, 48000 ]
     }
   ]
 

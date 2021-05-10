@@ -98,8 +98,8 @@ scripts:
             - sh: kill -9 $TOP_PID
 
 hosts:
-  client: erik@erik-laptop:22
-  server: erik@erik-pc:22
+  client: johara@localhost:22
+  server: johara@localhost:22
 
 roles:
 
@@ -121,7 +121,7 @@ roles:
 
 states:
 
-  TEST_REPO_URL: https://github.com/ErikSimonsen/quarkus-iothread-workerpool
+  TEST_REPO_URL: https://github.com/johnaohara/quarkus-iothread-workerpool
   TEST_REPO_DIR: quarkus-iothread-workerpool
   TEST_REPO_BRANCH: master
   SERVER_FILE_PATH: /tmp/quarkus-test/server
@@ -154,7 +154,7 @@ states:
   ]
 
 
-  TEST_ENDPOINT: http://erik-pc.local:8080/hello/Bob
-  ENVIRONMENT_URL: http://erik-pc.local:8080/environment
+  TEST_ENDPOINT : http://{SERVER_HOST}:8080/hello/Bob
+  ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
 
   JAVA_VERSION: '11.0.11-open'

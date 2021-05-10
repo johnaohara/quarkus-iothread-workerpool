@@ -121,7 +121,7 @@ roles:
 
 states:
 
-  TEST_REPO_URL: https://github.com/johnaohara/quarkus-iothread-workerpool
+  TEST_REPO_URL: https://github.com/johnaohara/quarkus-iothread-workerpool.git
   TEST_REPO_DIR: quarkus-iothread-workerpool
   TEST_REPO_BRANCH: master
   SERVER_FILE_PATH: /tmp/quarkus-test/server

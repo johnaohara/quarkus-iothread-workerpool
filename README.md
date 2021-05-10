@@ -29,10 +29,10 @@ Timing of system startup and results graphing is provided by [node.js](https://n
    applications. Please refer to Docker installation documentation for your particular operating system.
 
 2. Install [node.js](https://nodejs.org/en/) on the server-host that will be used to run the benchmark applications, and
-   the host that will be used to start the benchmark application from.
+   the host (probably your current machine) that will be used to start the benchmark application from.
 
 3. Install [sdkman](https://sdkman.io/install) on the server-host that will be used to run the benchmark applications,
-   and the host that will be used to start the benchmark application from.
+   and the host (probably your current machine) that will be used to start the benchmark application from.
 
 4. Install [jbang](https://github.com/maxandersen/jbang) on the host that will be used generate the graphs from the
    generated data.

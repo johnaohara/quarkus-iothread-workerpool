@@ -25,25 +25,30 @@ Timing of system startup and results graphing is provided by [node.js](https://n
 
 ### Setup
 
-1. Ensure [docker](https://docs.docker.com/get-docker/) deamon is running on the server that you wish to run the applications. Please refer to Docker installation documentation for your particular operating system.
+1. Ensure [docker](https://docs.docker.com/get-docker/) deamon is running on the server-host that you wish to run the
+   applications. Please refer to Docker installation documentation for your particular operating system.
 
-2. Install [node.js](https://nodejs.org/en/) on the server that will be used to run the benchmark applications.
+2. Install [node.js](https://nodejs.org/en/) on the server-host that will be used to run the benchmark applications, and
+   the host that will be used to start the benchmark application from.
 
-3. Install [sdkman](https://sdkman.io/install) on the server that will be used to run the benchmark applications.
+3. Install [sdkman](https://sdkman.io/install) on the server-host that will be used to run the benchmark applications,
+   and the host that will be used to start the benchmark application from.
 
-4. Install [jbang](https://github.com/maxandersen/jbang) on the server that will be used to run the benchmark applications.
+4. Install [jbang](https://github.com/maxandersen/jbang) on the host that will be used generate the graphs from the
+   generated data.
 
     ```shell script
     $ sdk install jbang
     ```
 
-4. Build and install [wrk2](https://github.com/giltene/wrk2/wiki/Installing-wrk2-on-Linux) on the client machine that will be used to drive load to the server
+4. Build and install [wrk2](https://github.com/giltene/wrk2/wiki/Installing-wrk2-on-Linux) on the client-host machine
+   that will be used to drive load to the server
 
-    CentOS / RedHat / Fedora
-    
+   CentOS / RedHat / Fedora
+
     ```shell script
     sudo yum -y groupinstall 'Development Tools'
-    sudo yum -y install openssl-devel git
+    sudo yum -y install openssl-devel git zlib-devel
     git clone https://github.com/giltene/wrk2.git
     cd wrk2
     make
@@ -98,7 +103,7 @@ Timing of system startup and results graphing is provided by [node.js](https://n
 7. After the run has complete, process the run data with `processResults.sh`
 
     ```shell script
-    $ ./processResults.sh 4 {CLIENT_HOST} {SERVER_HOST}
+    $ ./processResults.sh 4 {SERVER_HOST} {CLIENT_HOST}
     ```   
 
    where;

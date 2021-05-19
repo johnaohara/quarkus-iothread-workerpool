@@ -19,31 +19,36 @@ Timing of system startup and results graphing is provided by [node.js](https://n
  - Docker
  - [sdkman](https://sdkman.io/)
  - [node.js](https://nodejs.org/en/)
- - [qDup](https://github.com/Hyperfoil/qDup/releases/tag/release-0.4.1)
+ - [qDup](https://github.com/Hyperfoil/qDup/releases/tag/release-0.6.3)
  - [wrk2](https://github.com/giltene/wrk2)
  - [jbang](https://github.com/maxandersen/jbang)
 
 ### Setup
 
-1. Ensure [docker](https://docs.docker.com/get-docker/) deamon is running on the server that you wish to run the applications. Please refer to Docker installation documentation for your particular operating system.
+1. Ensure [docker](https://docs.docker.com/get-docker/) deamon is running on the server-host that you wish to run the
+   applications. Please refer to Docker installation documentation for your particular operating system.
 
-2. Install [node.js](https://nodejs.org/en/) on the server that will be used to run the benchmark applications.
+2. Install [node.js](https://nodejs.org/en/) on the server-host that will be used to run the benchmark applications, and
+   the host (probably your current machine) that will be used to start the benchmark application from.
 
-3. Install [sdkman](https://sdkman.io/install) on the server that will be used to run the benchmark applications.
+3. Install [sdkman](https://sdkman.io/install) on the server-host that will be used to run the benchmark applications,
+   and the host (probably your current machine) that will be used to start the benchmark application from.
 
-4. Install [jbang](https://github.com/maxandersen/jbang) on the server that will be used to run the benchmark applications.
+4. Install [jbang](https://github.com/maxandersen/jbang) on the host that will be used generate the graphs from the
+   generated data.
 
     ```shell script
     $ sdk install jbang
     ```
 
-4. Build and install [wrk2](https://github.com/giltene/wrk2/wiki/Installing-wrk2-on-Linux) on the client machine that will be used to drive load to the server
+4. Build and install [wrk2](https://github.com/giltene/wrk2/wiki/Installing-wrk2-on-Linux) on the client-host machine
+   that will be used to drive load to the server
 
-    CentOS / RedHat / Fedora
-    
+   CentOS / RedHat / Fedora
+
     ```shell script
     sudo yum -y groupinstall 'Development Tools'
-    sudo yum -y install openssl-devel git
+    sudo yum -y install openssl-devel git zlib-devel
     git clone https://github.com/giltene/wrk2.git
     cd wrk2
     make
@@ -82,22 +87,25 @@ Timing of system startup and results graphing is provided by [node.js](https://n
      ENVIRONMENT_URL: http://{SERVER_HOST}:8080/environment
    ...
     ``` 
-    
-    where; 
-     - `{USER}` is the username you wish to connect to the remote machine with
-     - `{CLIENT_HOST}` is the fully qualified domain name of the client machine to run generate load
-     - `{SERVER_HOST}` is the fully qualified domain name of the server machine with the docker deamon already running in step (1)
 
-6. Run the benchmark script with qDup: `java -jar {path_to_qDup}/qDup-0.4.1-uber.jar -B ./results/data ./scripts/qDup/benchmark.yaml`. 
-    
-    N.B. this script may appear to freeze, it takes approx 30 mins   to run and will not always write output to the terminal.
+   where;
+   - `{USER}` is the username you wish to connect to the remote machine with
+   - `{CLIENT_HOST}` is the fully qualified domain name of the client machine to run generate load
+   - `{SERVER_HOST}` is the fully qualified domain name of the server machine with the docker deamon already running in
+     step (1)
+
+6. Run the benchmark script with
+   qDup: `java -jar {path_to_qDup}/qDup-0.6.3-uber.jar -B ./results/data ./scripts/qDup/benchmark.yaml`.
+
+   N.B. this script may appear to freeze, it takes approx 30 mins to run and will not always write output to the
+   terminal.
 
 7. After the run has complete, process the run data with `processResults.sh`
 
     ```shell script
-    $ ./processResults.sh 4 {CLIENT_HOST} {SERVER_HOST}
+    $ ./processResults.sh 4 {SERVER_HOST} {CLIENT_HOST}
     ```   
-   
+
    where;
     - `4` is the number of cpus (this is used to calculate the % cpu utilization)
     - `{CLIENT_HOST}` is the full qualified hostname of the client machine defined in  `scripts/qDup/benchmark.yaml` in step (5)

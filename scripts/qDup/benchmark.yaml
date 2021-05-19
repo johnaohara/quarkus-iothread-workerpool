@@ -12,7 +12,10 @@ scripts:
             - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-WARM-UP-END 1
             - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-START 1
             - set-signal: ${{RUNTIME.name}}-${{RUN_RATE}}-MEASURE-END 1
-
+            
+  set-locale-numeric:
+    - sh: export LC_NUMERIC="en_US.UTF-8"
+    
   clear-server-dirs:
     - sh: if [ -d ${{SERVER_FILE_PATH}} ]; then rm -Rf ${{SERVER_FILE_PATH}}; fi
     - sh: mkdir -p ${{SERVER_FILE_PATH}}/output
@@ -106,12 +109,14 @@ roles:
   client:
     hosts: [client]
     setup-scripts:
+      - set-locale-signals
       - clear-client-dirs
     run-scripts:
       - generate-load
   server:
     hosts: [server]
     setup-scripts:
+      - set-locale-signals
       - define-signals
       - clear-server-dirs
       - build-applications
